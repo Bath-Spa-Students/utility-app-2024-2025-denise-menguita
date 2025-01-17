@@ -86,7 +86,7 @@ suggestions = {
     "Toblerone": "Water",
     "Oman Chips": "Kit Kat",
     "Lacnor Mango": "Toblerone",
-    "Water": "Ferrero Rocher",
+    "Water": "Ferrero Raffaello",
 }
 
 ### START OF CODE MADE WITH HELP OF YOUTUBE TUTORIAL BY CHANNEL ATLAS. LINKED IN REFERENCE LIST ###
@@ -176,7 +176,7 @@ class vendingmachine:
         try:
             payment = float(payment)  #convert payment to float
         except ValueError:
-            messagebox.showerror("Invalid input.", "Please enter a valid amount.")
+            messagebox.showerror("Invalid input", "Please enter a valid amount.")
             return
 
         item = self.get_item(item_code)
@@ -189,11 +189,11 @@ class vendingmachine:
                 self.change_label.config(text=f"Your change is AED {change:.2f}")
                 self.main.after(1500, lambda: self.show_suggestion(item["ID"]))   #show suggestion 1.5 secs after purchase
             else:
-                messagebox.showerror("Insufficient payment.", f"You need AED {price - payment:.2f} more.")
+                messagebox.showerror("Insufficient payment", f"You need AED {price - payment:.2f} more.")
         elif item :
-            messagebox.showerror("Sorry, that item is out of stock. Please select another.")
+            messagebox.showerror("Item unavailable", f"Sorry, that item is out of stock. Please select another.")
         else:
-            messagebox.showerror("Invalid code. Please try again.")
+            messagebox.showerror("Invalid code", f"Please try again.")
 
     def get_item(self, code):
         for category, items in menu.items():
